@@ -1,12 +1,12 @@
 pipeline {
     agent {
         label 'jenkins-agent'
-    }
-    environment {
+        environment {
         PIPELINE_HASH = sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
         HARBOR_REGISTRY = 'harbor.dev.afsmtddso.com'
         HARBOR_PROJECT = 'arodriguezsemidey-harbor-project'
         APP_IMAGE_NAME = 'app'   
+    }
     }
     stages {
         stage('Application repository') {
